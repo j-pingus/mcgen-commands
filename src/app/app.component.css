@@ -1,0 +1,31 @@
+mat-card{
+}
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+}
+
+.box .row.content {
+  flex: 1 1 auto;
+  overflow-x: scroll;
+  overflow-scrolling: auto;
+  display: flex;
+}
+mat-expansion-panel{
+  margin: 5px;
+}
+.column {
+  border: 1px dotted grey;
+  flex: 1 0 auto ;
+}
+.box .row.footer {
+  flex: 0 1 40px;
+}

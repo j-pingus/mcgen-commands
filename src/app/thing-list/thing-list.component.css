@@ -1,0 +1,24 @@
+div.main {
+  display: flex;
+  flex-flow: row;
+  padding: 5px;
+}
+
+.card {
+  #height: 70px;
+  #width: 70px;
+  margin: 5px;
+}
+
+mat-card-content {
+  align-content: center;
+}
+
+img {
+  width: 40px;
+  height: auto;
+}
+
+.selected {
+  border: 2px dotted red;
+}

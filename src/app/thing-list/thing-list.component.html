@@ -1,0 +1,26 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{title}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="main">
+    <mat-card *ngFor="let thing of things" (click)="select(thing)" class="card">
+
+      <mat-card-content [class]="getClass(thing)" [matBadge]="gauge(thing).actual" >
+        <img [alt]="thing.id" [src]="thing.getImage()" ><br/>
+        {{thing.id}} - {{gauge(thing).actual}}<br/>
+        <mat-slider *ngIf="isGuauge(thing)"
+                    [min]="gauge(thing).min"
+                    [max]="gauge(thing).max"
+                    [(value)]="gauge(thing).actual"
+
+                    color="primary"
+        ></mat-slider>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</mat-expansion-panel>
+
+

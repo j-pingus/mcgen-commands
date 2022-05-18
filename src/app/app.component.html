@@ -1,2 +1,19 @@
-
-<router-outlet></router-outlet>
+<!-- Obviously, you could use HTML5 tags like `header`, `footer` and `section` -->
+<mat-card class="box">
+  <mat-card-title class="row header">
+    Minecraft command generator
+  </mat-card-title>
+  <mat-card-subtitle class="row header">
+    to use in creative
+  </mat-card-subtitle>
+  <mat-card-content class="row content">
+    <p class="column">
+      <mat-accordion>
+          <things-list [things]="tools" title="Choose a tool" (selectedThing)="command.setTool($event)"></things-list>
+          <things-list [things]="materials" title="Choose a material" (selectedThing)="command.setMaterial($event)"></things-list>
+          <things-list [things]="enchants" [multi]="true" title="Choose an enchant" (selectedThing)="command.setEnchants($event)"></things-list>
+      </mat-accordion>
+    <command #command></command>
+    </p>
+  </mat-card-content>
+</mat-card>
