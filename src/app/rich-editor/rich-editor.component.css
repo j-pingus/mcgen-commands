@@ -1,0 +1,12 @@
+.flex-row{
+  display: flex;
+  flex-flow: row;
+}
+.left{
+  fex: 1 3 auto;
+  min-width: 74%;
+}
+.right{
+  fex: 1 1 auto;
+  min-width: 24%;
+}

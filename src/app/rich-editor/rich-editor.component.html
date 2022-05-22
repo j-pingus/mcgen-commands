@@ -1,0 +1,11 @@
+<div class="flex-row">
+  <mat-form-field appearance="fill" class="left">
+    <mat-label>{{name}}</mat-label>
+    <input matInput [(ngModel)]="text" (ngModelChange)="changed()">
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="right">
+    <input matInput [ngxMatColorPicker]="picker" [disabled]="false" [formControl]="colorCtr" (ngModelChange)="changed()">
+    <ngx-mat-color-toggle matSuffix [for]="picker"></ngx-mat-color-toggle>
+    <ngx-mat-color-picker #picker [color]="colorPalette" [touchUi]="false"></ngx-mat-color-picker>
+  </mat-form-field>
+</div>

@@ -1,19 +1,45 @@
 <!-- Obviously, you could use HTML5 tags like `header`, `footer` and `section` -->
-<mat-card class="box">
+<mat-card>
   <mat-card-title class="row header">
     Minecraft command generator
   </mat-card-title>
   <mat-card-subtitle class="row header">
-    to use in creative
+    to give something extraordinary in creative<br/>
+    generated command is copied in the clipboard automatically
   </mat-card-subtitle>
   <mat-card-content class="row content">
     <p class="column">
       <mat-accordion>
-          <things-list [things]="tools" title="Choose a tool" (selectedThing)="command.setTool($event)"></things-list>
-          <things-list [things]="materials" title="Choose a material" (selectedThing)="command.setMaterial($event)"></things-list>
-          <things-list [things]="enchants" [multi]="true" title="Choose an enchant" (selectedThing)="command.setEnchants($event)"></things-list>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Custom Name
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <rich-editor name="displayed name" (textChanged)="command.setDisplay($event)"></rich-editor>
+          <rich-editor name="lore" (textChanged)="command.setLore($event)"></rich-editor>
+        </mat-expansion-panel>
+        <things-list #toolsList
+                     [things]="tools"
+                     title="Choose a tool"
+                     (selectedThing)="setTool($event,materialsList,enchantsList,command)"></things-list>
+        <things-list #materialsList
+                     [things]="materials"
+                     title="Choose a material"
+                     (selectedThing)="command.setMaterial($event)"></things-list>
+        <things-list #enchantsList
+                     [things]="enchants"
+                     [multi]="true" title="Choose an enchant"
+                     (selectedThing)="command.setEnchants($event)"></things-list>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Extras</mat-panel-title>
+          </mat-expansion-panel-header>
+          <label>Unbreakable</label>
+          <mat-slide-toggle (change)="command.setUnbreakable($event.checked)"></mat-slide-toggle>
+        </mat-expansion-panel>
       </mat-accordion>
-    <command #command></command>
+      <command #command></command>
     </p>
   </mat-card-content>
 </mat-card>

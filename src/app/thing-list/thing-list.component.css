@@ -1,12 +1,14 @@
 div.main {
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   padding: 5px;
+  width: 90%;
 }
 
 .card {
-  #height: 70px;
-  #width: 70px;
+  flex: 1 1 auto;
+
   margin: 5px;
 }
 
@@ -21,4 +23,7 @@ img {
 
 .selected {
   border: 2px dotted red;
+}
+.disabled{
+   opacity: 0.5;
 }

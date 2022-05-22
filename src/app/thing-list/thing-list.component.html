@@ -5,7 +5,7 @@
     </mat-panel-title>
   </mat-expansion-panel-header>
   <div class="main">
-    <mat-card *ngFor="let thing of things" (click)="select(thing)" class="card">
+    <mat-card *ngFor="let thing of things" (click)="select(thing)" class="card" [class.disabled]="!isEnabled(thing)">
 
       <mat-card-content [class]="getClass(thing)" [matBadge]="gauge(thing).actual" >
         <img [alt]="thing.id" [src]="thing.getImage()" ><br/>
@@ -14,7 +14,7 @@
                     [min]="gauge(thing).min"
                     [max]="gauge(thing).max"
                     [(value)]="gauge(thing).actual"
-
+                    [disabled]="!isEnabled(thing)"
                     color="primary"
         ></mat-slider>
       </mat-card-content>

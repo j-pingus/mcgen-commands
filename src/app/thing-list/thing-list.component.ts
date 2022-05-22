@@ -16,23 +16,43 @@ export class ThingListComponent {
   multi = false;
   @Output()
   selectedThing: EventEmitter<Thing[]> = new EventEmitter<Thing[]>();
+  enabled: string[] | null = null;
 
   constructor() {
   }
 
-  select(thing: Thing) {
-    if (this.multi) {
-      const index = this.selected.indexOf(thing);
-      if (index == -1) {
-        this.selected.push(thing);
-      } else {
-        this.selected.splice(index, 1);
+  setEnabled(enabled: string[] | null) {
+    this.enabled = enabled;
+    var newSelected: Thing[] = [];
+    this.selected.forEach(select => {
+      if (this.isEnabled(select)) {
+        newSelected.push(select);
       }
-    } else {
-      this.selected = [thing];
-    }
-    console.log(this.selected);
+    });
+    this.selected = newSelected;
     this.selectedThing.next(this.selected);
+  }
+
+  select(thing: Thing) {
+    if (this.isEnabled(thing)) {
+      if (this.multi) {
+        const index = this.selected.indexOf(thing);
+        if (index == -1) {
+          this.selected.push(thing);
+        } else {
+          this.selected.splice(index, 1);
+        }
+      } else {
+        this.selected = [thing];
+      }
+      console.log(this.selected);
+      this.selectedThing.next(this.selected);
+    }
+  }
+
+  isEnabled(thing: Thing): boolean {
+    if (this.enabled == null) return true;
+    return this.enabled.indexOf(thing.id) >= 0;
   }
 
   getClass(thing: Thing) {
