@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Gauge, Thing} from "../model/model";
+import {MatSliderChange} from "@angular/material/slider";
 
 @Component({
   selector: 'things-list',
@@ -60,10 +61,15 @@ export class ThingListComponent {
   }
 
   isGuauge(thing: any) {
-    return 'min' in thing;
+    return 'min' in thing && thing.min !== thing.max;
   }
 
   gauge(thing: any): Gauge {
     return thing as Gauge;
+  }
+
+  change($event: MatSliderChange) {
+    console.log($event.value);
+
   }
 }

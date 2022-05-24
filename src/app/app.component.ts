@@ -47,16 +47,17 @@ export class AppComponent implements OnInit {
   public enchants: Enchant[] = [
     new Enchant('mending', 1, 1),
     new Enchant('unbreaking', 1, 256),
+    new Enchant('fire_aspect', 1, 256),
     new Enchant('sharpness', 1, 256),
+    new Enchant('smite', 1, 256),
     new Enchant('looting', 1, 256),
+    new Enchant('protection', 1, 256),
     new Enchant('blast_protection', 1, 256),
     new Enchant('fire_protection', 1, 256),
-    new Enchant('protection', 1, 256),
     new Enchant('projectile_protection', 1, 256),
     new Enchant('thorns', 1, 256),
     new Enchant('respiration', 1, 256),
     new Enchant('feather_falling', 1, 256),
-    new Enchant('fire_aspect', 1, 256),
     new Enchant('knockback', 1, 256),
   ];
 

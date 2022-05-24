@@ -11,7 +11,9 @@ div.main {
 
   margin: 5px;
 }
-
+.card-content{
+  text-align: center;
+}
 mat-card-content {
   align-content: center;
 }

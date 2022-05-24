@@ -23,6 +23,7 @@ import {
 import { RichEditorComponent } from './rich-editor/rich-editor.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     NgxMatColorPickerModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS }
